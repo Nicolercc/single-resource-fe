@@ -13,7 +13,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Tasks />} />
-            <Route path="/task" element={<Task />} />
+            <Route path="/:id" element={<Task />} />
             {/* <Route path="/colors/new" element={<New />} /> */}
             {/* <Route path="/colors/:index" element={<Show />} /> */}
             {/* <Route path="/colors/:index/edit" element={<Edit />} /> */}
