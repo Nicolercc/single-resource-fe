@@ -4,8 +4,8 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          My Website
+        <a className="navbar-brand" href="/">
+          Taskify
         </a>
         <button
           className="navbar-toggler"
@@ -22,22 +22,12 @@ function Nav() {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Home
+                Tasks
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                About
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Services
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
+                Add
               </a>
             </li>
           </ul>
