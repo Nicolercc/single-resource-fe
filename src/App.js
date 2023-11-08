@@ -4,6 +4,8 @@ import "./App.css";
 import Nav from "./Components/Nav";
 import Tasks from "./Components/Tasks";
 import Task from "./Components/Task";
+import TaskNewForm from "./Components/TaskNewForm";
+
 
 function App() {
   return (
@@ -14,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Tasks />} />
             <Route path="/:id" element={<Task />} />
-            {/* <Route path="/colors/new" element={<New />} /> */}
+            <Route path="/tasks/New Task" element={<TaskNewForm />} />
             {/* <Route path="/colors/:index" element={<Show />} /> */}
             {/* <Route path="/colors/:index/edit" element={<Edit />} /> */}
             {/* <Route path="*" element={<FourOFour />} /> */}

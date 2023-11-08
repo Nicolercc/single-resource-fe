@@ -27,7 +27,7 @@ function Nav() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Add
+                New Task
               </a>
             </li>
           </ul>
