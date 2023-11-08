@@ -20,8 +20,6 @@ function TaskEditForm() {
     setTask({ ...task, [event.target.id]: event.target.value });
   };
 
-  
-
   // Update a color. Redirect to show view
   const updateTask = () => {
     fetch(`${API}/tasks/${id}`, {
@@ -51,9 +49,12 @@ function TaskEditForm() {
   };
 
   return (
-    <div className="Edit">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">name</label>
+    <div className="Edit container m-5">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group my-4 h5">
+          <label htmlFor="name" className="d-flex justify-content-center ">
+            Name:
+          </label>
           <input
             id="name"
             value={task.name}
@@ -61,65 +62,94 @@ function TaskEditForm() {
             onChange={handleTextChange}
             placeholder="Name of task"
             required
+            className="form-control"
           />
-
-          <label htmlFor="description">description</label>
+        </div>
+        <div className="form-group my-4 h5">
+          <label
+            htmlFor="description"
+            className="d-flex justify-content-center "
+          >
+            Description:
+          </label>
           <input
             id="description"
             value={task.description}
             type="text"
             onChange={handleTextChange}
             placeholder="description of task"
+            className="form-control"
             required
           />
-
-          <label htmlFor="deadline">deadline</label>
+        </div>
+        <div className="form-group my-4 h5">
+          <label htmlFor="deadline" className="d-flex justify-content-center ">
+            Deadline:
+          </label>
           <input
             id="deadline"
             value={task.deadline}
             type="text"
             onChange={handleTextChange}
             placeholder="deadline of task"
+            className="form-control"
             required
           />
-
-          <label htmlFor="category">category</label>
+        </div>
+        <div className="form-group my-4 h5">
+          <label htmlFor="category" className="d-flex justify-content-center ">
+            Category:
+          </label>
           <input
             id="category"
             value={task.category}
             type="text"
             onChange={handleTextChange}
             placeholder="category of task"
+            className="form-control"
             required
           />
-
-          <label htmlFor="assigned_to">assigned_to</label>
+        </div>
+        <div className="form-group my-4 h5">
+          <label
+            htmlFor="assigned_to"
+            className="d-flex justify-content-center "
+          >
+            Assigned to:
+          </label>
           <input
             id="assigned_to"
             value={task.assigne_to}
             type="text"
             onChange={handleTextChange}
             placeholder="assigned_to of task"
+            className="form-control"
             required
           />
-
-          <label htmlFor="status">status</label>
+        </div>
+        <div className="form-group my-4 h5">
+          <label htmlFor="status" className="d-flex justify-content-center ">
+            Status:
+          </label>
           <input
             id="status"
             value={task.status}
             type="text"
             onChange={handleTextChange}
             placeholder="status of task"
+            className="form-control"
             required
           />
+        </div>
       </form>
       <br />
-      <Link to={`/tasks/${id}`}>
-        <button>Nevermind!</button>
-      </Link>
+      <div className="text-center">
+        <Link to={`/tasks/${id}`} className="">
+          <button className="btn btn-primary">Nevermind!</button>
+        </Link>
+      </div>
     </div>
   );
 }
 
-export default TaskEditForm
-
+export default TaskEditForm;
