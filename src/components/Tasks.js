@@ -9,6 +9,7 @@ import {
   MDBTooltip,
 } from "mdb-react-ui-kit";
 import axios from "axios";
+import Total from "./Total";
 
 const API = `http://localhost:3005/tasks`;
 
@@ -87,6 +88,9 @@ function Tasks() {
           </MDBTooltip>
         </MDBListGroupItem>
       ))}
+      <div>
+        <Total tasks={tasks} />
+      </div>
     </MDBListGroup>
   );
 }

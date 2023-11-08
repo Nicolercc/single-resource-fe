@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Tasks from "../Components/Tasks";
+import Total from "../Components/Total";
 
 function Index() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ function Index() {
       <div className="container my-5">
         <Tasks />
       </div>
+      <div></div>
       <div className="container d-flex justify-content-center">
         <button
           className="btn btn-secondary form-label container mx-5"

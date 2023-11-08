@@ -5,8 +5,8 @@ import Home from "./Pages/Home";
 import Edit from "./Pages/Edit";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
+import FourOFour from "./Pages/FourOFour";
 import "./App.css";
-
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/:id" element={<Show />} />
             <Route path="/new" element={<New />} />
             <Route path="/edit/:id" element={<Edit />} />
-            {/* <Route path="*" element={<FourOFour />} /> */}
+            <Route path="*" element={<FourOFour />} />
           </Routes>
         </main>
       </Router>

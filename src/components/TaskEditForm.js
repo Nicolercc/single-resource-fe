@@ -12,7 +12,7 @@ function TaskEditForm() {
     description: "",
     deadline: "",
     category: "",
-    assigne_to: "",
+    assigned_to: "",
     status: "",
   });
 
@@ -20,9 +20,8 @@ function TaskEditForm() {
     setTask({ ...task, [event.target.id]: event.target.value });
   };
 
-  // Update a color. Redirect to show view
   const updateTask = () => {
-    fetch(`${API}/tasks/${id}`, {
+    fetch(`${API}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -32,16 +31,28 @@ function TaskEditForm() {
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        navigate(`/tasks/${id}`);
+        navigate(`/${id}`);
       });
   };
 
   // On page load, fill in the form with the Task data.
   useEffect(() => {
-    fetch(`${API}/tasks/${id}`)
-      .then((res) => res.json(task))
-      .then((res) => setTask(res));
-  }, [id, task]);
+    fetch(`${API}/${id}`)
+      .then((res) => res.json())
+      .then((res) => {
+        // Set default values if the fetched data is null or undefined
+        const updatedTask = res || {
+          name: "",
+          description: "",
+          deadline: "",
+          category: "",
+          assigned_to: "",
+          status: "",
+        };
+        setTask(updatedTask);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -144,8 +155,13 @@ function TaskEditForm() {
       </form>
       <br />
       <div className="text-center">
-        <Link to={`/tasks/${id}`} className="">
-          <button className="btn btn-primary">Nevermind!</button>
+        <Link to={`/${id}`} className="">
+          <button className="btn btn-primary mx-3">Nevermind</button>
+        </Link>
+        <Link to={`/${id}`} className="">
+          <button className="btn btn-primary mx-3" onClick={handleSubmit}>
+            Submit
+          </button>
         </Link>
       </div>
     </div>
