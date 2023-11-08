@@ -7,6 +7,7 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import "./App.css";
 
+
 function App() {
   return (
     <div className="App">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -10,6 +9,7 @@ import {
   MDBTooltip,
 } from "mdb-react-ui-kit";
 
+
 const API = `http://localhost:3005/tasks`;
 
 function Tasks() {
@@ -18,7 +18,7 @@ function Tasks() {
 
   useEffect(() => {
     getTasks();
-  }, []);
+  });
 
   async function getTasks() {
     try {
