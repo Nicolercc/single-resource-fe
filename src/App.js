@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-// import Home from "./components/Home";
 import Nav from "./Components/Nav";
-import Tasks from "./Components/Tasks";
-import Task from "./Components/Task";
-import TaskNewForm from "./Components/TaskNewForm";
-import TaskEditForm from "./Components/TaskEditForm";
+import Index from "./Pages/Index";
+import Home from "./Pages/Home";
+import Edit from "./Pages/Edit";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+import "./App.css";
 
 
 function App() {
@@ -15,11 +15,11 @@ function App() {
         <Nav />
         <main>
           <Routes>
-            <Route path="/" element={<Tasks />} />
-            <Route path="/:id" element={<Task />} />
-            <Route path="/tasks/New Task" element={<TaskNewForm />} />
-            {/* <Route path="/colors/:index" element={<Show />} /> */}
-            <Route path="/tasks/:id/edit" element={<TaskEditForm />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<Index />} />
+            <Route path="/:id" element={<Show />} />
+            <Route path="/new" element={<New />} />
+            <Route path="/edit/:id" element={<Edit />} />
             {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
         </main>
