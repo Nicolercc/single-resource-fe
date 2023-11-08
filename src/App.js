@@ -17,8 +17,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/tasks" element={<Index />} />
             <Route path="/:id" element={<Show />} />
-            <Route path="/tasks/new" element={<New />} />
-            <Route path="/tasks/edit/:id" element={<Edit />} />
+            <Route path="/new" element={<New />} />
+            <Route path="/edit/:id" element={<Edit />} />
             {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
         </main>

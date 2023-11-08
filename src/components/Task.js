@@ -40,7 +40,7 @@ function Task() {
   };
 
   const handleEdit = () => {
-    navigate(`/tasks/edit/${id}`);
+    navigate(`/edit/${id}`);
   };
 
   return (
