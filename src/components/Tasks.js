@@ -9,7 +9,7 @@ function Tasks() {
 
   useEffect(() => {
     getTasks();
-  }, []);
+  });
 
   async function getTasks() {
     try {
