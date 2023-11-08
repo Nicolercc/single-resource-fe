@@ -15,7 +15,6 @@ function Task() {
   async function getTask() {
     try {
       const result = await axios.get(`${API}/${id}`);
-      console.log(result.data);
       setTask(result.data);
     } catch (e) {
       console.log(e);
