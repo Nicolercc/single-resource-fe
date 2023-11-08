@@ -116,7 +116,12 @@ function TaskNewForm() {
             placeholder="status of task"
             required
           />
+          <button type="submit">Submit</button>
         </form>
+
+        <Link to={`/colors`}>
+          <button>Nevermind!</button>
+        </Link>
       </div>
     );
 }

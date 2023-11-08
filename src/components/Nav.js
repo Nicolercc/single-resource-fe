@@ -30,6 +30,11 @@ function Nav() {
                 New Task
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Edit
+              </a>
+            </li>
           </ul>
         </div>
       </div>
