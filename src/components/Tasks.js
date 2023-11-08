@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Task from "./Task";
+// import Task from "./Task";
 const API = `http://localhost:3005/tasks`;
 
 function Tasks() {
