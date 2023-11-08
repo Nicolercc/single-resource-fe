@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
-// import Home from "./components/Home";
 import Nav from "./Components/Nav";
-import Tasks from "./Components/Tasks";
-import Task from "./Components/Task";
+import Index from "./Pages/Index";
+import Home from "./Pages/Home";
+import Edit from "./Pages/Edit";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+import "./App.css";
 
 function App() {
   return (
@@ -12,11 +14,11 @@ function App() {
         <Nav />
         <main>
           <Routes>
-            <Route path="/" element={<Tasks />} />
-            <Route path="/:id" element={<Task />} />
-            {/* <Route path="/colors/new" element={<New />} /> */}
-            {/* <Route path="/colors/:index" element={<Show />} /> */}
-            {/* <Route path="/colors/:index/edit" element={<Edit />} /> */}
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<Index />} />
+            <Route path="/:id" element={<Show />} />
+            <Route path="/tasks/new" element={<New />} />
+            <Route path="/tasks/edit/:id" element={<Edit />} />
             {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
         </main>

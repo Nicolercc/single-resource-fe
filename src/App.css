@@ -1,0 +1,12 @@
+/* ---------------------- Navbar css ---------------------- */
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar {
+  min-height: 90px;
+}
+/* ---------------------- Tasks css ---------------------- */
+.primary-text-color {
+  color: rgb(56, 134, 163); /* Adjust the color based on your design */
+}
