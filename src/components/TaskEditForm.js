@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API = `https://tasks-manager-service.onrender.com/tasks`;
+const API = process.env.API_BASE_URL;
 
 function TaskEditForm() {
   let { id } = useParams();

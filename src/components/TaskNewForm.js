@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { formatDateForBackend } from "./Utils";
 
-const API = `https://tasks-manager-service.onrender.com/tasks`;
+const API = process.env.API_BASE_URL;
 
 function TaskNewForm() {
   const navigate = useNavigate();

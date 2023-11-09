@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import Total from "./Total";
 
-const API = `https://tasks-manager-service.onrender.com/tasks`;
+const API = process.env.API_BASE_URL;
 
 function Tasks() {
   const navigate = useNavigate();

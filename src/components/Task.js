@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { formatDateForFrontend } from "./Utils";
 import axios from "axios";
 
-const API = `https://tasks-manager-service.onrender.com/tasks`;
+const API = process.env.API_BASE_URL;
 
 function Task() {
   const { id } = useParams();
