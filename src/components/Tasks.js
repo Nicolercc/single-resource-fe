@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import Total from "./Total";
 
-const API = process.env.API_BASE_URL;
+const API = process.env.REACT_APP_URL_API;
 
 function Tasks() {
   const navigate = useNavigate();
