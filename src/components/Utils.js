@@ -1,11 +1,21 @@
 const formatDateForBackend = (date) => {
-  const isoDate = new Date(date).toISOString();
-  return isoDate.split("T")[0];
+  try {
+    const isoDate = new Date(date).toISOString();
+    return isoDate.split("T")[0];
+  } catch (error) {
+    console.error("Error formatting date for backend:", error);
+    return null;
+  }
 };
 
 const formatDateForFrontend = (date) => {
-  const formattedDate = new Date(date).toISOString().split("T")[0];
-  return formattedDate;
+  try {
+    const formattedDate = new Date(date).toISOString().split("T")[0];
+    return formattedDate;
+  } catch (error) {
+    console.error("Error formatting date for backend:", error);
+    return null;
+  }
 };
 
 export { formatDateForBackend, formatDateForFrontend };

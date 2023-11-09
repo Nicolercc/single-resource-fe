@@ -1,11 +1,12 @@
 import React from "react";
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { formatDateForBackend } from "./Utils";
 
-const API = `http://localhost:3005/tasks`;
+const API = `https://tasks-manager-service.onrender.com/tasks`;
 
 function TaskNewForm() {
-
   const navigate = useNavigate();
 
   const [task, settask] = useState({
@@ -13,51 +14,48 @@ function TaskNewForm() {
     description: "",
     deadline: "",
     category: "",
-    assigne_to: "",
-    status: ""
-    })
-  
-    const addTask = () => {
-      const taskData = {
-        name: task.name,
+    assigned_to: "",
+    status: "",
+  });
+
+  const [error, setError] = useState(null);
+
+  const addTask = async () => {
+    const taskData = {
+      name: task.name,
       description: task.description,
-      deadline: task.deadline,
+      deadline: formatDateForBackend(task.deadline),
       category: task.category,
-      assigne_to: task.assigne_to,
-      status: task.status
-      }  
-
-      try { 
-        fetch(`${API}/tasks`, {
-          method: `POST`,
-          headers: {
-            'Content-Type' : 'application/json'
-          },
-          body: JSON.stringify(taskData)
-        })
-          .then(res => res.json())
-          .then(() => navigate('/tasks'))
-
-      } catch (e) {
-        console.log(e)
-      }
-      
-
+      assigned_to: task.assigned_to,
+      status: task.status,
     };
-  
-      const handleTextChange = (event) => {
-        settask({ ...task, [event.target.id]: event.target.value });
-      };
-    
-      const handleSubmit = (event) => {
-      event.preventDefault();
-      addTask();
-      };
 
-    return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">name</label>
+    try {
+      const response = await axios.post(API, taskData);
+      console.log("Task added successfully:", response.data);
+      navigate("/tasks");
+    } catch (error) {
+      setError("Error adding task. Please try again.");
+      console.error("Error:", error);
+    }
+  };
+
+  const handleTextChange = (event) => {
+    settask({ ...task, [event.target.id]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addTask();
+  };
+
+  return (
+    <div className="container mt-5">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="name" className="d-block">
+            Name:
+          </label>
           <input
             id="name"
             value={task.name}
@@ -65,65 +63,91 @@ function TaskNewForm() {
             onChange={handleTextChange}
             placeholder="Name of task"
             required
+            className="form-control"
           />
-
-          <label htmlFor="description">description</label>
+        </div>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="description" className="d-block">
+            Description:
+          </label>
           <input
             id="description"
             value={task.description}
             type="text"
             onChange={handleTextChange}
-            placeholder="description of task"
+            placeholder="Description of task"
             required
+            className="form-control"
           />
-
-          <label htmlFor="deadline">deadline</label>
+        </div>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="deadline" className="d-block">
+            Deadline:
+          </label>
           <input
             id="deadline"
             value={task.deadline}
-            type="text"
+            type="date"
             onChange={handleTextChange}
-            placeholder="deadline of task"
+            placeholder="Deadline of task"
             required
+            className="form-control"
           />
-
-          <label htmlFor="category">category</label>
+        </div>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="category" className="d-block">
+            Category:
+          </label>
           <input
             id="category"
             value={task.category}
             type="text"
             onChange={handleTextChange}
-            placeholder="category of task"
+            placeholder="Category of task"
             required
+            className="form-control"
           />
-
-          <label htmlFor="assigned_to">assigned_to</label>
+        </div>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="assigned_to" className="d-block">
+            Assigned to:
+          </label>
           <input
             id="assigned_to"
-            value={task.assigne_to}
+            value={task.assigned_to}
             type="text"
             onChange={handleTextChange}
-            placeholder="assigned_to of task"
+            placeholder="Who was it assigned to?"
             required
+            className="form-control"
           />
-
-          <label htmlFor="status">status</label>
+        </div>
+        <div className="form-group m-4 h6 text-center">
+          <label htmlFor="status" className="d-block">
+            Status:
+          </label>
           <input
             id="status"
             value={task.status}
             type="text"
             onChange={handleTextChange}
-            placeholder="status of task"
+            placeholder="Status of task"
             required
+            className="form-control"
           />
-          <button type="submit">Submit</button>
-        </form>
-
-        <Link to={`/colors`}>
-          <button>Nevermind!</button>
-        </Link>
-      </div>
-    );
+        </div>
+        {error && <div className="alert alert-danger">{error}</div>}
+        <div className="container text-center m-3">
+          <Link to={`/tasks`} className="btn btn-secondary mx-3">
+            Nevermind!
+          </Link>
+          <button type="submit" className="btn btn-primary mx-3">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default TaskNewForm;

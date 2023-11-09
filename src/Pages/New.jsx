@@ -4,8 +4,11 @@ import TaskNewForm from "../Components/TaskNewForm";
 function New() {
   return (
     <div>
-      <div>
-        <h2>Add Task</h2>
+      <div className="d-flex justify-content-center mt-5 my-3">
+        <h2> Ready, Set, Task:</h2>
+      </div>
+      <div className="d-flex justify-content-center ">
+        <h5> Add a new task below!</h5>
       </div>
       <div>
         <TaskNewForm />
