@@ -19,8 +19,13 @@ Taskify is a straightforward task management web application built with React.js
 
 ## Installation
 
-### `npm install`
+#### `npm install`
 
-### `npm start`
+#### `npm start`
 
 ## Relevant Links
+
+- **Backend**: [Deployed Link](https://tasks-manager-service.onrender.com)
+- **Frontend**: [Deployed Link](https://main--spontaneous-pithivier-973ee6.netlify.app/)
+
+- **Backend**: [Repository](https://github.com/Nicolercc/single-resource-be)
